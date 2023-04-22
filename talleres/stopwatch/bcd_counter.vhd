@@ -3,12 +3,11 @@ use IEEE.std_logic_1164.all;
 use IEEE.numeric_std.all;
 
 entity bcd_counter is
-    -- constant N : natural := 4;
     port(
         clk_i : in std_logic;
         run_i : in std_logic;
         reset_i : in std_logic;
-        count_o : out std_logic_vector(3 downto 0); -- Podría ser unsigned?
+        count_o : out std_logic_vector(3 downto 0);
         max_o : out std_logic
     );
 end entity;
