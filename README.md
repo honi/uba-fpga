@@ -34,7 +34,7 @@ Luego el instalador "Xilinx Unified Installer 2022.2: Linux Self Extracting Web 
 Para poder conectarse a la FPGA Zybo Z7-20 fue necesario instalar el siguiente driver (*nota: debería rechequear esto con un clean install*).
 
 ```bash
-# Yo instalé Vivado en `/opt/Xilinx`, ajustá acorde a tu config.
+# Yo instalé Vivado en /opt/Xilinx, ajustá acorde a tu config.
 cd /opt/Xilinx/Vivado/2022.2/data/xicom/cable_drivers/lin64/install_script/install_drivers
 sudo ./install_drivers
 ```
