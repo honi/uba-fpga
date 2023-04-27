@@ -1,8 +1,8 @@
 GHDL_OPTS = --std=08
-GHDL_SIM_OPTS = --stop-time=1100ms
+GHDL_SIM_OPTS = --stop-time=11000ms
 
 stopwatch:
-	ghdl -a $(GHDL_OPTS) bcd_counter.vhd stopwatch_pkg.vhd stopwatch.vhd stopwatch_tb.vhd
+	ghdl -a $(GHDL_OPTS) stopwatch_pkg.vhd bcd_counter.vhd bcd_dimmer.vhd display.vhd stopwatch.vhd stopwatch_tb.vhd
 	ghdl -e $(GHDL_OPTS) stopwatch_tb
 	ghdl -r $(GHDL_OPTS) stopwatch_tb --wave=stopwatch.ghw $(GHDL_SIM_OPTS)
 

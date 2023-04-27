@@ -12,7 +12,7 @@ architecture behavior of bcd_counter_tb is
     signal clk : std_logic := '1';
     signal run : std_logic := '1';
     signal reset : std_logic := '0';
-    signal count : std_logic_vector(N-1 downto 0);
+    signal count : std_logic_vector(N-1 downto 0) := (others => '0');
     signal max : std_logic := '0';
 begin
     clk_process : process
