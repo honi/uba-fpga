@@ -7,45 +7,24 @@ entity stopwatch_tb is
 end entity;
 
 architecture behavior of stopwatch_tb is
-    constant stopwatch_clk_period : time := 1 ms;
-    signal stopwatch_clk : std_logic := '1';
-
-    constant dimmer_clk_period : time := 100 us;
-    signal dimmer_clk : std_logic := '1';
+    constant sysclk_period : time := 8 ns; -- 125MHz
+    signal sysclk : std_logic := '1';
 
     signal run : std_logic := '1';
     signal reset : std_logic := '0';
-    signal counts : matrix(3 downto 0) := (others => (others => '0'));
 begin
-    stopwatch_clk_process : process
+    sysclk_process : process
     begin
-        stopwatch_clk <= '1';
-        wait for stopwatch_clk_period / 2;
-        stopwatch_clk <= '0';
-        wait for stopwatch_clk_period / 2;
+        sysclk <= '1';
+        wait for sysclk_period / 2;
+        sysclk <= '0';
+        wait for sysclk_period / 2;
     end process;
 
-    dimmer_clk_process : process
-    begin
-        dimmer_clk <= '1';
-        wait for dimmer_clk_period / 2;
-        dimmer_clk <= '0';
-        wait for dimmer_clk_period / 2;
-    end process;
-
-    stopwatch : entity work.stopwatch
+    stopwatch_top : entity work.stopwatch_top
         port map(
-            clk_i => stopwatch_clk,
-            run_i => run,
-            reset_i => reset,
-            counts_o => counts
+            sysclk => sysclk,
+            run_i => '1',
+            reset_i => '0'
         );
-
-    display : entity work.display
-        port map(
-            clk_i => dimmer_clk,
-            counts_i => counts,
-            leds_o => open
-        );
-
 end architecture;
