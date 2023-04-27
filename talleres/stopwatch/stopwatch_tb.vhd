@@ -7,13 +7,12 @@ entity stopwatch_tb is
 end entity;
 
 architecture behavior of stopwatch_tb is
-    constant N : natural := 3;
     constant clk_period : time := 1 ms;
 
     signal clk : std_logic := '1';
     signal run : std_logic := '1';
     signal reset : std_logic := '0';
-    signal counts : digits(2 downto 0);
+    signal counts : vector_of_integers(2 downto 0);
 begin
     clk_process : process
     begin
