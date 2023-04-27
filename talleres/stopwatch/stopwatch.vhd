@@ -37,7 +37,7 @@ begin
     counter_2 : entity work.bcd_counter
     port map(
         clk_i => clk_i,
-        run_i => max(1),
+        run_i => max(1) and max(0),
         reset_i => reset_i,
         count_o => counts(2),
         max_o => max(2)
