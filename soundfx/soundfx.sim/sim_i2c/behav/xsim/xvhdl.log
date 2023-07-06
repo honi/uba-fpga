@@ -1,4 +1,0 @@
-INFO: [VRFC 10-163] Analyzing VHDL file "/home/jb/fpga/soundfx/soundfx.srcs/sources_1/new/audio_codec_config.vhd" into library xil_defaultlib
-INFO: [VRFC 10-3107] analyzing entity 'audio_codec_config'
-INFO: [VRFC 10-163] Analyzing VHDL file "/home/jb/fpga/soundfx/soundfx.srcs/sim_i2c/new/i2c_tb.vhd" into library xil_defaultlib
-INFO: [VRFC 10-3107] analyzing entity 'i2c_tb'

@@ -3,12 +3,12 @@
 # SW Build 3865809 on Sun May  7 15:04:56 MDT 2023
 # IP Build 3864474 on Sun May  7 20:36:21 MDT 2023
 # SharedData Build 3865790 on Sun May 07 13:33:03 MDT 2023
-# Start of session at: Thu Jun 29 21:22:42 2023
-# Process ID: 37013
+# Start of session at: Thu Jul  6 20:11:10 2023
+# Process ID: 91909
 # Current directory: /home/jb/fpga/soundfx/soundfx.runs/synth_1
-# Command line: vivado -log i2c_master_top.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source i2c_master_top.tcl
-# Log file: /home/jb/fpga/soundfx/soundfx.runs/synth_1/i2c_master_top.vds
+# Command line: vivado -log i2c_test.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source i2c_test.tcl
+# Log file: /home/jb/fpga/soundfx/soundfx.runs/synth_1/i2c_test.vds
 # Journal file: /home/jb/fpga/soundfx/soundfx.runs/synth_1/vivado.jou
-# Running On: macbuntu, OS: Linux, CPU Frequency: 4476.062 MHz, CPU Physical cores: 6, Host memory: 33535 MB
+# Running On: macbuntu, OS: Linux, CPU Frequency: 4493.930 MHz, CPU Physical cores: 6, Host memory: 33535 MB
 #-----------------------------------------------------------
-source i2c_master_top.tcl -notrace
+source i2c_test.tcl -notrace

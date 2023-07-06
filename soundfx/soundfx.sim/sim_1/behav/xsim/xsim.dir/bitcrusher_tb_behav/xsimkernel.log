@@ -1,7 +1,4 @@
-Running: xsim.dir/bitcrusher_tb_behav/xsimk -simmode gui -wdb bitcrusher_tb_behav.wdb -simrunnum 0 -socket 51799
+Running: xsim.dir/bitcrusher_tb_behav/xsimk -simmode gui -wdb bitcrusher_tb_behav.wdb -simrunnum 0 -socket 43939
 Design successfully loaded
 Design Loading Memory Usage: 23464 KB (Peak: 24040 KB)
-Design Loading CPU Usage: 30 ms
-Simulation completed
-Simulation Memory Usage: 113400 KB (Peak: 162732 KB)
-Simulation CPU Usage: 40 ms
+Design Loading CPU Usage: 10 ms

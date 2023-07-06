@@ -1,0 +1,14 @@
+#-----------------------------------------------------------
+# Vivado v2023.1 (64-bit)
+# SW Build 3865809 on Sun May  7 15:04:56 MDT 2023
+# IP Build 3864474 on Sun May  7 20:36:21 MDT 2023
+# SharedData Build 3865790 on Sun May 07 13:33:03 MDT 2023
+# Start of session at: Thu Jul  6 19:12:09 2023
+# Process ID: 52463
+# Current directory: /home/jb/fpga/soundfx/soundfx.runs/clk_wiz_0_synth_1
+# Command line: vivado -log clk_wiz_0.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source clk_wiz_0.tcl
+# Log file: /home/jb/fpga/soundfx/soundfx.runs/clk_wiz_0_synth_1/clk_wiz_0.vds
+# Journal file: /home/jb/fpga/soundfx/soundfx.runs/clk_wiz_0_synth_1/vivado.jou
+# Running On: macbuntu, OS: Linux, CPU Frequency: 4531.670 MHz, CPU Physical cores: 6, Host memory: 33535 MB
+#-----------------------------------------------------------
+source clk_wiz_0.tcl -notrace

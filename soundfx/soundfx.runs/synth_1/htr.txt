@@ -7,4 +7,4 @@
 # Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
 #
 
-vivado -log i2c_master_top.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source i2c_master_top.tcl
+vivado -log i2c_test.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source i2c_test.tcl
