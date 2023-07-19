@@ -1,0 +1,9 @@
+# compile vhdl design source files
+vhdl2008 xil_defaultlib  \
+"../../../../soundfx.srcs/sources_1/new/counter.vhd" \
+
+vhdl xil_defaultlib  \
+"../../../../soundfx.srcs/sim_counter/new/counter_tb.vhd" \
+
+# Do not sort compile order
+nosort

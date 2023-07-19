@@ -18,19 +18,28 @@ begin
         sysclk <= '0';
         wait for clk_period / 2;
     end process;
-    
+
+    clk_wiz: entity work.clk_wiz_0
+        port map(
+            sysclk     => sysclk,
+            clk_12_288 => clk_12_288,
+            reset      => rst
+        );
+
     audio_codec_config: entity work.audio_codec_config
+        generic map(
+            CAPACITOR_DELAY => 32 -- nanoseconds (4 clocks)
+        )
         port map(
             clk => sysclk,
             rst => rst
         );
-        
-    x: entity work.clk_wiz_0
-        port map(
-            sysclk => sysclk,
-            clk_12_288 => clk_12_288,
-            reset => rst
-        );
-    
-    rst <= '1', '0' after clk_period;
+
+    tb: process
+    begin
+        rst <= '1';
+        wait for clk_period * 1.5;
+        rst <= '0';
+        wait;
+    end process;
 end behavioral;

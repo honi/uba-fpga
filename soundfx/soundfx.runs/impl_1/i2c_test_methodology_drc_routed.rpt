@@ -1,7 +1,7 @@
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
 --------------------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2023.1 (lin64) Build 3865809 Sun May  7 15:04:56 MDT 2023
-| Date         : Thu Jul  6 20:12:47 2023
+| Date         : Thu Jul 13 17:53:54 2023
 | Host         : macbuntu running 64-bit Ubuntu 22.04.2 LTS
 | Command      : report_methodology -file i2c_test_methodology_drc_routed.rpt -pb i2c_test_methodology_drc_routed.pb -rpx i2c_test_methodology_drc_routed.rpx
 | Design       : i2c_test
@@ -23,27 +23,46 @@ Table of Contents
           Floorplan: design_1
       Design limits: <entire design considered>
              Max violations: <unlimited>
-             Violations found: 41
+             Violations found: 13
 +-----------+------------------+----------------------------------------------------+------------+
 | Rule      | Severity         | Description                                        | Violations |
 +-----------+------------------+----------------------------------------------------+------------+
 | TIMING-4  | Critical Warning | Invalid primary clock redefinition on a clock tree | 1          |
 | TIMING-27 | Critical Warning | Invalid primary clock on hierarchical pin          | 1          |
-| TIMING-18 | Warning          | Missing input or output delay                      | 4          |
-| TIMING-20 | Warning          | Non-clocked latch                                  | 34         |
-| LATCH-1   | Advisory         | Existing latches in the design                     | 1          |
+| LUTAR-1   | Warning          | LUT drives async reset alert                       | 1          |
+| TIMING-18 | Warning          | Missing input or output delay                      | 10         |
 +-----------+------------------+----------------------------------------------------+------------+
 
 2. REPORT DETAILS
 -----------------
 TIMING-4#1 Critical Warning
 Invalid primary clock redefinition on a clock tree  
-Invalid clock redefinition on a clock tree. The primary clock x/inst/sysclk is defined downstream of clock sys_clk_pin and overrides its insertion delay and/or waveform definition
+Invalid clock redefinition on a clock tree. The primary clock clk_wiz_0/inst/clk_in1 is defined downstream of clock sys_clk_pin and overrides its insertion delay and/or waveform definition
 Related violations: <none>
 
 TIMING-27#1 Critical Warning
 Invalid primary clock on hierarchical pin  
-A primary clock x/inst/sysclk is created on an inappropriate internal pin x/inst/sysclk. It is not recommended to create a primary clock on a hierarchical pin when its driver pin has a fanout connected to multiple clock pins
+A primary clock clk_wiz_0/inst/clk_in1 is created on an inappropriate internal pin clk_wiz_0/inst/clk_in1. It is not recommended to create a primary clock on a hierarchical pin when its driver pin has a fanout connected to multiple clock pins
+Related violations: <none>
+
+LUTAR-1#1 Warning
+LUT drives async reset alert  
+LUT cell audio_codec_config/capacitor_counter/FSM_onehot_state[8]_i_3, with 2 or more inputs, drives asynchronous preset/clear pin(s) audio_codec_config/i2c_master/busy_reg/PRE,
+audio_codec_config/i2c_master/count_reg[0]/CLR,
+audio_codec_config/i2c_master/count_reg[10]/CLR,
+audio_codec_config/i2c_master/count_reg[1]/CLR,
+audio_codec_config/i2c_master/count_reg[2]/CLR,
+audio_codec_config/i2c_master/count_reg[3]/CLR,
+audio_codec_config/i2c_master/count_reg[4]/CLR,
+audio_codec_config/i2c_master/count_reg[5]/CLR,
+audio_codec_config/i2c_master/count_reg[6]/CLR,
+audio_codec_config/i2c_master/count_reg[7]/CLR,
+audio_codec_config/i2c_master/count_reg[8]/CLR,
+audio_codec_config/i2c_master/count_reg[9]/CLR,
+audio_codec_config/i2c_master/scl_ena_reg/CLR,
+audio_codec_config/i2c_master/sda_int_reg/PRE,
+audio_codec_config/i2c_master/stretch_reg/CLR
+ (the first 15 of 26 listed). The LUT may glitch and trigger an unexpected reset, even if it is a properly timed path.
 Related violations: <none>
 
 TIMING-18#1 Warning
@@ -53,192 +72,47 @@ Related violations: <none>
 
 TIMING-18#2 Warning
 Missing input or output delay  
-An input delay is missing on btn[0] relative to the rising and/or falling clock edge(s) of sys_clk_pin.
+An input delay is missing on ac_sda relative to the rising and/or falling clock edge(s) of sys_clk_pin.
 Related violations: <none>
 
 TIMING-18#3 Warning
 Missing input or output delay  
-An output delay is missing on ac_scl relative to the rising and/or falling clock edge(s) of sys_clk_pin.
+An input delay is missing on btn[0] relative to the rising and/or falling clock edge(s) of sys_clk_pin.
 Related violations: <none>
 
 TIMING-18#4 Warning
 Missing input or output delay  
+An input delay is missing on btn[1] relative to the rising and/or falling clock edge(s) of sys_clk_pin.
+Related violations: <none>
+
+TIMING-18#5 Warning
+Missing input or output delay  
+An output delay is missing on ac_scl relative to the rising and/or falling clock edge(s) of sys_clk_pin.
+Related violations: <none>
+
+TIMING-18#6 Warning
+Missing input or output delay  
 An output delay is missing on ac_sda relative to the rising and/or falling clock edge(s) of sys_clk_pin.
 Related violations: <none>
 
-TIMING-20#1 Warning
-Non-clocked latch  
-The latch audio_codec_config/config_index_reg[0] cannot be properly analyzed as its control pin audio_codec_config/config_index_reg[0]/G is not reached by a timing clock
+TIMING-18#7 Warning
+Missing input or output delay  
+An output delay is missing on led[0] relative to the rising and/or falling clock edge(s) of sys_clk_pin.
 Related violations: <none>
 
-TIMING-20#2 Warning
-Non-clocked latch  
-The latch audio_codec_config/config_index_reg[10] cannot be properly analyzed as its control pin audio_codec_config/config_index_reg[10]/G is not reached by a timing clock
+TIMING-18#8 Warning
+Missing input or output delay  
+An output delay is missing on led[1] relative to the rising and/or falling clock edge(s) of sys_clk_pin.
 Related violations: <none>
 
-TIMING-20#3 Warning
-Non-clocked latch  
-The latch audio_codec_config/config_index_reg[11] cannot be properly analyzed as its control pin audio_codec_config/config_index_reg[11]/G is not reached by a timing clock
+TIMING-18#9 Warning
+Missing input or output delay  
+An output delay is missing on led[2] relative to the rising and/or falling clock edge(s) of sys_clk_pin.
 Related violations: <none>
 
-TIMING-20#4 Warning
-Non-clocked latch  
-The latch audio_codec_config/config_index_reg[12] cannot be properly analyzed as its control pin audio_codec_config/config_index_reg[12]/G is not reached by a timing clock
-Related violations: <none>
-
-TIMING-20#5 Warning
-Non-clocked latch  
-The latch audio_codec_config/config_index_reg[13] cannot be properly analyzed as its control pin audio_codec_config/config_index_reg[13]/G is not reached by a timing clock
-Related violations: <none>
-
-TIMING-20#6 Warning
-Non-clocked latch  
-The latch audio_codec_config/config_index_reg[14] cannot be properly analyzed as its control pin audio_codec_config/config_index_reg[14]/G is not reached by a timing clock
-Related violations: <none>
-
-TIMING-20#7 Warning
-Non-clocked latch  
-The latch audio_codec_config/config_index_reg[15] cannot be properly analyzed as its control pin audio_codec_config/config_index_reg[15]/G is not reached by a timing clock
-Related violations: <none>
-
-TIMING-20#8 Warning
-Non-clocked latch  
-The latch audio_codec_config/config_index_reg[16] cannot be properly analyzed as its control pin audio_codec_config/config_index_reg[16]/G is not reached by a timing clock
-Related violations: <none>
-
-TIMING-20#9 Warning
-Non-clocked latch  
-The latch audio_codec_config/config_index_reg[17] cannot be properly analyzed as its control pin audio_codec_config/config_index_reg[17]/G is not reached by a timing clock
-Related violations: <none>
-
-TIMING-20#10 Warning
-Non-clocked latch  
-The latch audio_codec_config/config_index_reg[18] cannot be properly analyzed as its control pin audio_codec_config/config_index_reg[18]/G is not reached by a timing clock
-Related violations: <none>
-
-TIMING-20#11 Warning
-Non-clocked latch  
-The latch audio_codec_config/config_index_reg[19] cannot be properly analyzed as its control pin audio_codec_config/config_index_reg[19]/G is not reached by a timing clock
-Related violations: <none>
-
-TIMING-20#12 Warning
-Non-clocked latch  
-The latch audio_codec_config/config_index_reg[1] cannot be properly analyzed as its control pin audio_codec_config/config_index_reg[1]/G is not reached by a timing clock
-Related violations: <none>
-
-TIMING-20#13 Warning
-Non-clocked latch  
-The latch audio_codec_config/config_index_reg[20] cannot be properly analyzed as its control pin audio_codec_config/config_index_reg[20]/G is not reached by a timing clock
-Related violations: <none>
-
-TIMING-20#14 Warning
-Non-clocked latch  
-The latch audio_codec_config/config_index_reg[21] cannot be properly analyzed as its control pin audio_codec_config/config_index_reg[21]/G is not reached by a timing clock
-Related violations: <none>
-
-TIMING-20#15 Warning
-Non-clocked latch  
-The latch audio_codec_config/config_index_reg[22] cannot be properly analyzed as its control pin audio_codec_config/config_index_reg[22]/G is not reached by a timing clock
-Related violations: <none>
-
-TIMING-20#16 Warning
-Non-clocked latch  
-The latch audio_codec_config/config_index_reg[23] cannot be properly analyzed as its control pin audio_codec_config/config_index_reg[23]/G is not reached by a timing clock
-Related violations: <none>
-
-TIMING-20#17 Warning
-Non-clocked latch  
-The latch audio_codec_config/config_index_reg[24] cannot be properly analyzed as its control pin audio_codec_config/config_index_reg[24]/G is not reached by a timing clock
-Related violations: <none>
-
-TIMING-20#18 Warning
-Non-clocked latch  
-The latch audio_codec_config/config_index_reg[25] cannot be properly analyzed as its control pin audio_codec_config/config_index_reg[25]/G is not reached by a timing clock
-Related violations: <none>
-
-TIMING-20#19 Warning
-Non-clocked latch  
-The latch audio_codec_config/config_index_reg[26] cannot be properly analyzed as its control pin audio_codec_config/config_index_reg[26]/G is not reached by a timing clock
-Related violations: <none>
-
-TIMING-20#20 Warning
-Non-clocked latch  
-The latch audio_codec_config/config_index_reg[27] cannot be properly analyzed as its control pin audio_codec_config/config_index_reg[27]/G is not reached by a timing clock
-Related violations: <none>
-
-TIMING-20#21 Warning
-Non-clocked latch  
-The latch audio_codec_config/config_index_reg[28] cannot be properly analyzed as its control pin audio_codec_config/config_index_reg[28]/G is not reached by a timing clock
-Related violations: <none>
-
-TIMING-20#22 Warning
-Non-clocked latch  
-The latch audio_codec_config/config_index_reg[29] cannot be properly analyzed as its control pin audio_codec_config/config_index_reg[29]/G is not reached by a timing clock
-Related violations: <none>
-
-TIMING-20#23 Warning
-Non-clocked latch  
-The latch audio_codec_config/config_index_reg[2] cannot be properly analyzed as its control pin audio_codec_config/config_index_reg[2]/G is not reached by a timing clock
-Related violations: <none>
-
-TIMING-20#24 Warning
-Non-clocked latch  
-The latch audio_codec_config/config_index_reg[30] cannot be properly analyzed as its control pin audio_codec_config/config_index_reg[30]/G is not reached by a timing clock
-Related violations: <none>
-
-TIMING-20#25 Warning
-Non-clocked latch  
-The latch audio_codec_config/config_index_reg[31] cannot be properly analyzed as its control pin audio_codec_config/config_index_reg[31]/G is not reached by a timing clock
-Related violations: <none>
-
-TIMING-20#26 Warning
-Non-clocked latch  
-The latch audio_codec_config/config_index_reg[3] cannot be properly analyzed as its control pin audio_codec_config/config_index_reg[3]/G is not reached by a timing clock
-Related violations: <none>
-
-TIMING-20#27 Warning
-Non-clocked latch  
-The latch audio_codec_config/config_index_reg[4] cannot be properly analyzed as its control pin audio_codec_config/config_index_reg[4]/G is not reached by a timing clock
-Related violations: <none>
-
-TIMING-20#28 Warning
-Non-clocked latch  
-The latch audio_codec_config/config_index_reg[5] cannot be properly analyzed as its control pin audio_codec_config/config_index_reg[5]/G is not reached by a timing clock
-Related violations: <none>
-
-TIMING-20#29 Warning
-Non-clocked latch  
-The latch audio_codec_config/config_index_reg[6] cannot be properly analyzed as its control pin audio_codec_config/config_index_reg[6]/G is not reached by a timing clock
-Related violations: <none>
-
-TIMING-20#30 Warning
-Non-clocked latch  
-The latch audio_codec_config/config_index_reg[7] cannot be properly analyzed as its control pin audio_codec_config/config_index_reg[7]/G is not reached by a timing clock
-Related violations: <none>
-
-TIMING-20#31 Warning
-Non-clocked latch  
-The latch audio_codec_config/config_index_reg[8] cannot be properly analyzed as its control pin audio_codec_config/config_index_reg[8]/G is not reached by a timing clock
-Related violations: <none>
-
-TIMING-20#32 Warning
-Non-clocked latch  
-The latch audio_codec_config/config_index_reg[9] cannot be properly analyzed as its control pin audio_codec_config/config_index_reg[9]/G is not reached by a timing clock
-Related violations: <none>
-
-TIMING-20#33 Warning
-Non-clocked latch  
-The latch audio_codec_config/data_wr_reg[0] cannot be properly analyzed as its control pin audio_codec_config/data_wr_reg[0]/G is not reached by a timing clock
-Related violations: <none>
-
-TIMING-20#34 Warning
-Non-clocked latch  
-The latch audio_codec_config/enabled_reg cannot be properly analyzed as its control pin audio_codec_config/enabled_reg/G is not reached by a timing clock
-Related violations: <none>
-
-LATCH-1#1 Advisory
-Existing latches in the design  
-There are 34 latches found in the design. Inferred latches are often the result of HDL coding mistakes, such as incomplete if or case statements.
+TIMING-18#10 Warning
+Missing input or output delay  
+An output delay is missing on led[3] relative to the rising and/or falling clock edge(s) of sys_clk_pin.
 Related violations: <none>
 
 

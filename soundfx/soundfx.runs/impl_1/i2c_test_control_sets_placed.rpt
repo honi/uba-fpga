@@ -1,7 +1,7 @@
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
 ---------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2023.1 (lin64) Build 3865809 Sun May  7 15:04:56 MDT 2023
-| Date         : Thu Jul  6 20:12:27 2023
+| Date         : Thu Jul 13 17:53:32 2023
 | Host         : macbuntu running 64-bit Ubuntu 22.04.2 LTS
 | Command      : report_control_sets -verbose -file i2c_test_control_sets_placed.rpt
 | Design       : i2c_test
@@ -27,7 +27,7 @@ Table of Contents
 |    Minimum number of control sets                        |     6 |
 |    Addition due to synthesis replication                 |     0 |
 |    Addition due to physical synthesis replication        |     0 |
-| Unused register locations in slices containing registers |    23 |
+| Unused register locations in slices containing registers |    11 |
 +----------------------------------------------------------+-------+
 * Control sets can be merged at opt_design using control_set_merge or merge_equivalent_drivers
 ** Run report_qor_suggestions for automated merging and remapping suggestions
@@ -40,10 +40,10 @@ Table of Contents
 |       Fanout       | Count |
 +--------------------+-------+
 | Total control sets |     6 |
-| >= 0 to < 4        |     2 |
-| >= 4 to < 6        |     0 |
+| >= 0 to < 4        |     0 |
+| >= 4 to < 6        |     1 |
 | >= 6 to < 8        |     2 |
-| >= 8 to < 10       |     0 |
+| >= 8 to < 10       |     1 |
 | >= 10 to < 12      |     0 |
 | >= 12 to < 14      |     0 |
 | >= 14 to < 16      |     0 |
@@ -58,27 +58,27 @@ Table of Contents
 +--------------+-----------------------+------------------------+-----------------+--------------+
 | Clock Enable | Synchronous Set/Reset | Asynchronous Set/Reset | Total Registers | Total Slices |
 +--------------+-----------------------+------------------------+-----------------+--------------+
-| No           | No                    | No                     |              40 |           18 |
-| No           | No                    | Yes                    |              18 |            7 |
+| No           | No                    | No                     |               8 |            5 |
+| No           | No                    | Yes                    |              19 |            6 |
 | No           | Yes                   | No                     |               0 |            0 |
-| Yes          | No                    | No                     |               0 |            0 |
-| Yes          | No                    | Yes                    |               7 |            2 |
-| Yes          | Yes                   | No                     |               0 |            0 |
+| Yes          | No                    | No                     |               7 |            2 |
+| Yes          | No                    | Yes                    |               7 |            4 |
+| Yes          | Yes                   | No                     |              36 |            9 |
 +--------------+-----------------------+------------------------+-----------------+--------------+
 
 
 4. Detailed Control Set Information
 -----------------------------------
 
-+-----------------------------------------+-------------------------------------+------------------+------------------+----------------+--------------+
-|               Clock Signal              |            Enable Signal            | Set/Reset Signal | Slice Load Count | Bel Load Count | Bels / Slice |
-+-----------------------------------------+-------------------------------------+------------------+------------------+----------------+--------------+
-|  audio_codec_config/enabled_reg_i_2_n_0 |                                     |                  |                1 |              1 |         1.00 |
-|  audio_codec_config/enabled_reg_i_1_n_0 |                                     |                  |                1 |              1 |         1.00 |
-|  sysclk_IBUF_BUFG                       |                                     |                  |                3 |              6 |         2.00 |
-|  sysclk_IBUF_BUFG                       | audio_codec_config/i2c_master/busy1 | led_OBUF[2]      |                2 |              7 |         3.50 |
-|  sysclk_IBUF_BUFG                       |                                     | led_OBUF[2]      |                7 |             18 |         2.57 |
-| ~audio_codec_config/state_BUFG[0]       |                                     |                  |               13 |             32 |         2.46 |
-+-----------------------------------------+-------------------------------------+------------------+------------------+----------------+--------------+
++-------------------+-------------------------------------------------------------------+---------------------------------------------+------------------+----------------+--------------+
+|    Clock Signal   |                           Enable Signal                           |               Set/Reset Signal              | Slice Load Count | Bel Load Count | Bels / Slice |
++-------------------+-------------------------------------------------------------------+---------------------------------------------+------------------+----------------+--------------+
+|  sysclk_IBUF_BUFG | audio_codec_config/config_counter/value_internal[4]_i_1_n_0       | audio_codec_config/capacitor_counter/btn[0] |                1 |              5 |         5.00 |
+|  sysclk_IBUF_BUFG | audio_codec_config/i2c_master/addr_rw0                            |                                             |                2 |              7 |         3.50 |
+|  sysclk_IBUF_BUFG | audio_codec_config/i2c_master/busy1                               | audio_codec_config/capacitor_counter/btn[0] |                4 |              7 |         1.75 |
+|  sysclk_IBUF_BUFG |                                                                   |                                             |                5 |              8 |         1.60 |
+|  sysclk_IBUF_BUFG |                                                                   | audio_codec_config/capacitor_counter/btn[0] |                6 |             19 |         3.17 |
+|  sysclk_IBUF_BUFG | audio_codec_config/capacitor_counter/value_internal[0]_i_1__0_n_0 | audio_codec_config/capacitor_counter/btn[0] |                8 |             31 |         3.88 |
++-------------------+-------------------------------------------------------------------+---------------------------------------------+------------------+----------------+--------------+
 
 

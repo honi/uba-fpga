@@ -5,20 +5,21 @@
    <db_ref_list>
       <db_ref path="i2c_tb_behav.wdb" id="1">
          <top_modules>
+            <top_module name="glbl" />
             <top_module name="i2c_tb" />
          </top_modules>
       </db_ref>
    </db_ref_list>
    <zoom_setting>
       <ZoomStartTime time="0.000000 us"></ZoomStartTime>
-      <ZoomEndTime time="9.720001 us"></ZoomEndTime>
-      <Cursor1Time time="0.000000 us"></Cursor1Time>
+      <ZoomEndTime time="8.210001 us"></ZoomEndTime>
+      <Cursor1Time time="3.136000 us"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
-      <NameColumnWidth column_width="220"></NameColumnWidth>
-      <ValueColumnWidth column_width="97"></ValueColumnWidth>
+      <NameColumnWidth column_width="227"></NameColumnWidth>
+      <ValueColumnWidth column_width="137"></ValueColumnWidth>
    </column_width_setting>
-   <WVObjectSize size="4" />
+   <WVObjectSize size="9" />
    <wvobject type="logic" fp_name="/i2c_tb/audio_codec_config/clk">
       <obj_property name="ElementShortName">clk</obj_property>
       <obj_property name="ObjectShortName">clk</obj_property>
@@ -31,6 +32,29 @@
       <obj_property name="ElementShortName">state</obj_property>
       <obj_property name="ObjectShortName">state</obj_property>
    </wvobject>
+   <wvobject type="logic" fp_name="/i2c_tb/audio_codec_config/ready">
+      <obj_property name="ElementShortName">ready</obj_property>
+      <obj_property name="ObjectShortName">ready</obj_property>
+   </wvobject>
+   <wvobject type="other" fp_name="/i2c_tb/audio_codec_config/config_counter/value">
+      <obj_property name="ElementShortName">value</obj_property>
+      <obj_property name="ObjectShortName">value</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/i2c_tb/audio_codec_config/i2c_data_wr">
+      <obj_property name="ElementShortName">i2c_data_wr[7:0]</obj_property>
+      <obj_property name="ObjectShortName">i2c_data_wr[7:0]</obj_property>
+      <obj_property name="Radix">BINARYRADIX</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/i2c_tb/audio_codec_config/i2c_master/data_wr">
+      <obj_property name="ElementShortName">data_wr[7:0]</obj_property>
+      <obj_property name="ObjectShortName">data_wr[7:0]</obj_property>
+      <obj_property name="Radix">BINARYRADIX</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/i2c_tb/audio_codec_config/i2c_master/data_tx">
+      <obj_property name="ElementShortName">data_tx[7:0]</obj_property>
+      <obj_property name="ObjectShortName">data_tx[7:0]</obj_property>
+      <obj_property name="Radix">BINARYRADIX</obj_property>
+   </wvobject>
    <wvobject type="group" fp_name="group88">
       <obj_property name="label">i2c_master</obj_property>
       <obj_property name="DisplayName">label</obj_property>
@@ -38,20 +62,6 @@
       <wvobject type="other" fp_name="/i2c_tb/audio_codec_config/i2c_master/state">
          <obj_property name="ElementShortName">state</obj_property>
          <obj_property name="ObjectShortName">state</obj_property>
-      </wvobject>
-      <wvobject type="array" fp_name="/i2c_tb/audio_codec_config/i2c_master/addr">
-         <obj_property name="ElementShortName">addr[6:0]</obj_property>
-         <obj_property name="ObjectShortName">addr[6:0]</obj_property>
-         <obj_property name="Radix">BINARYRADIX</obj_property>
-      </wvobject>
-      <wvobject type="array" fp_name="/i2c_tb/audio_codec_config/i2c_master/data_wr">
-         <obj_property name="ElementShortName">data_wr[7:0]</obj_property>
-         <obj_property name="ObjectShortName">data_wr[7:0]</obj_property>
-         <obj_property name="Radix">BINARYRADIX</obj_property>
-      </wvobject>
-      <wvobject type="logic" fp_name="/i2c_tb/audio_codec_config/i2c_master/rw">
-         <obj_property name="ElementShortName">rw</obj_property>
-         <obj_property name="ObjectShortName">rw</obj_property>
       </wvobject>
       <wvobject type="logic" fp_name="/i2c_tb/audio_codec_config/i2c_master/ena">
          <obj_property name="ElementShortName">ena</obj_property>

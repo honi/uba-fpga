@@ -55,7 +55,8 @@
 --  Output     Output      Phase    Duty Cycle   Pk-to-Pk     Phase
 --   Clock     Freq (MHz)  (degrees)    (%)     Jitter (ps)  Error (ps)
 ------------------------------------------------------------------------------
--- clk_12_288__12.28801______0.000______50.0______473.813____351.816
+-- clk_out1__12.28865______0.000______50.0______680.972____565.323
+-- clk_out2___5.99941______0.000______50.0______758.060____565.323
 --
 ------------------------------------------------------------------------------
 -- Input Clock   Freq (MHz)    Input Jitter (UI)
@@ -69,11 +70,12 @@ component clk_wiz_0
 port
  (-- Clock in ports
   -- Clock out ports
-  clk_12_288          : out    std_logic;
+  clk_out1          : out    std_logic;
+  clk_out2          : out    std_logic;
   -- Status and control signals
   reset             : in     std_logic;
   locked            : out    std_logic;
-  sysclk           : in     std_logic
+  clk_in1           : in     std_logic
  );
 end component;
 
@@ -84,11 +86,12 @@ end component;
 your_instance_name : clk_wiz_0
    port map ( 
   -- Clock out ports  
-   clk_12_288 => clk_12_288,
+   clk_out1 => clk_out1,
+   clk_out2 => clk_out2,
   -- Status and control signals                
    reset => reset,
    locked => locked,
    -- Clock in ports
-   sysclk => sysclk
+   clk_in1 => clk_in1
  );
 -- INST_TAG_END ------ End INSTANTIATION Template ------------
